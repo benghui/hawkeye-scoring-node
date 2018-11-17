@@ -1,18 +1,17 @@
 {
-  "version": "2.2.0",
+  "version": "1.0.0",
   "author": {
-    "name": "Anton Fisher",
-    "email": "a.fschr@gmail.com",
-    "url": "http://antonfisher.com"
+    "name": "Beng Hui",
+    "email": "benghui@gmail.com"
   },
-  "description": "React boilerplate with ES2015, Express.js, and Webpack 3",
+  "description": "Hawkeye Scoring",
   "license": "MIT",
   "engines": {
     "node": "11.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antonfisher/react-express-webpack.git"
+    "url": "https://github.com/benghui/hawkeye-scoring.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/server",
@@ -81,8 +80,9 @@
     "dotenv": "^6.1.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-fbjs": "^2.0.1",
-    "express": "4.16.2",
+    "express": "4.16.4",
     "immutable": "3.8.2",
+    "pg": "^7.6.1",
     "prop-types": "^15.6.1",
     "react": "16.3.0",
     "react-dom": "16.3.0",

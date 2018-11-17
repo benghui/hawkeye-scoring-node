@@ -2,18 +2,15 @@ const request = require('request');
 
 module.exports = {
   get: (req, res) => {
+    const query = req.query.search;
 
-    let apiKey = "hello";
+    const url = 'test';
 
-    let query = req.query.search;
+    request(url, (error, queryResponse, body) => {
+      console.log('error:', error); // Print the error if one occurred and handle it
+      console.log('statusCode:', queryResponse && queryResponse.statusCode); // Print the response status code if a response was received
 
-    let url = `http://api.walmartlabs.com/v1/search?apiKey=${apiKey}&query=${query}`
-
-    request(url, function (error, queryResponse, body) {
-          console.log('error:', error); // Print the error if one occurred and handle it
-          console.log('statusCode:', queryResponse && queryResponse.statusCode); // Print the response status code if a response was received
-
-          res.send(body);
+      res.send(body);
     });
-   }
+  },
 };

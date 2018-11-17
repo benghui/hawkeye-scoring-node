@@ -1,5 +1,5 @@
-const query = require('./controllers/query');
+module.exports = (app, db) => {
+  const query = require('./controllers/query')(db);
 
-module.exports = (app) => {
   app.get('/api/query', query.get);
 };

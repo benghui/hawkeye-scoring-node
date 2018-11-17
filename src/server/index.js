@@ -2,6 +2,8 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('./logger');
+// const pg = require('pg');
+const db = require('./db');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.HTTP_PORT = process.env.HTTP_PORT || 3000;
@@ -30,7 +32,30 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-require('./routes')(app);
+require('./routes')(app, db);
+
+// const config = {
+//   user: 'benghui',
+//   host: '127.0.0.1',
+//   database: 'hawkeye-scoring',
+//   port: 5432,
+// };
+// const pool = new pg.Pool(config);
+
+// pool.on('error', (err) => {
+//   console.log('Idle client error', err.message, err.stack);
+// });
+
+app.get('/', (request, response) => {
+  const queryString = 'SELECT * FROM students';
+  db.queryInterface(queryString, null, (error, queryResult) => {
+    if (error) {
+      console.error(error);
+    } else {
+      response.send('success');
+    }
+  });
+});
 
 // application routes (this goes last)
 setupAppRoutes(app);

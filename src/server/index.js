@@ -46,16 +46,16 @@ require('./routes')(app, db);
 //   console.log('Idle client error', err.message, err.stack);
 // });
 
-app.get('/', (request, response) => {
-  const queryString = 'SELECT * FROM students';
-  db.queryInterface(queryString, null, (error, queryResult) => {
-    if (error) {
-      console.error(error);
-    } else {
-      response.send('success');
-    }
-  });
-});
+// app.get('/', (request, response) => {
+//   const queryString = '';
+//   db.queryInterface(queryString, null, (error, queryResult) => {
+//     if (error) {
+//       console.error(error);
+//     } else {
+//       response.send('success');
+//     }
+//   });
+// });
 
 // application routes (this goes last)
 setupAppRoutes(app);
